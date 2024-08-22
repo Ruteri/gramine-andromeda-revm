@@ -29,8 +29,14 @@ async fn main() {
             .execute_command(input_buf.trim(), cli_args.trace)
             .await
         {
-            Ok(res) => println!("{:?}", res),
-            Err(e) => println!("{:?}", e),
+            Ok(res) => {
+                println!("{:?}", res);
+                eprintln!();
+            }
+            Err(e) => {
+                println!();
+                eprintln!("{:?}", e);
+            }
         }
     }
 }
